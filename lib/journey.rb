@@ -5,20 +5,19 @@ class Journey
   def initialize(entry_station = nil)
     @entry_station = entry_station
     @exit_station = nil
-    @complete_journey = false
     @minimum_fare = MINIMUM_FARE
   end
 
   def complete?
-    @complete_journey
+    @entry_station.nil? || @exit_station.nil?
   end
 
-  def finish
-    self
+  def finish(station)
+    @exit_station = station
   end
 
-  def calculate_fare
-    @minimum_fare
+  def fare
+    2
   end
 
 end
