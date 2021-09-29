@@ -1,5 +1,7 @@
 require 'journey'
 
+MINIMUM_FARE = 1
+
 describe Journey do
   let(:journey) { Journey.new("Paddington") }
   it "starts a journey" do
@@ -11,10 +13,13 @@ describe Journey do
   end
 
   it "finishes a journey" do
-    expect(journey.finish).to be(journey)
+    journey.finish("Marble Arch")
+    expect(journey.complete?).to be(true)
   end
 
-  it "calculates the fare of a complete journey" do
-    expect(journey.calculate_fare).to eq(journey.minimum_fare)
+  it "calculates the cost of a complete journey" do
+    journey.finish("Marble Arch")
+    journey.fare
+    expect(journey.cost).to eq(MINIMUM_FARE)
   end
 end
