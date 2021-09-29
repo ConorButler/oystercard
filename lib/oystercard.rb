@@ -3,10 +3,10 @@ class Oystercard
   LIMIT = 90
   MINIMUM_FARE = 1
 
-  def initialize
+  def initialize(journey_log = JourneyLog.new)
     @balance = 0
     @limit = LIMIT
-    @journey_log = []
+    @journey_log = journey_log
   end
 
   def top_up(amount)
@@ -14,22 +14,13 @@ class Oystercard
     @balance += amount
   end
 
-  def touch_in(station, new_journey = Journey.new(station))
+  def touch_in(station, journey = Journey.new)
     raise "You need the minimum fare balance of £#{MINIMUM_FARE}" if @balance < MINIMUM_FARE
-    end_journey(@active_journey, nil) if @active_journey
-    @active_journey = new_journey 
+    @journey_log.start(station)
   end
 
   def touch_out(station, new_journey = Journey.new)
-    @active_journey = new_journey if @active_journey.nil?
-    end_journey(@active_journey, station)
-    @active_journey = nil
-  end
-
-  def end_journey(journey, exit_station)
-    @active_journey.finish(exit_station)
-    deduct(@active_journey.fare)
-    journey_log << @active_journey
+    @journey_log.finish(station)
   end
 
   private
