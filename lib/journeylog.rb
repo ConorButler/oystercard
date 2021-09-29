@@ -6,17 +6,21 @@ class JourneyLog
   end
 
   def start(station)
+    @journey_class.finish(nil) if !self.current_journey.entry_station.nil? 
     @journey_class.entry_station = station
     # starts a new journey with an entry station
   end
 
   def finish(station)
     @journey_class.exit_station = station
+    @journeys << @journey_class.entry_station 
+    @journeys << @journey_class.exit_station
+    @journey_class = nil
   end
 
   private
   def current_journey
-    @journey_class
+    @journey_class ? @journey_class : @journey_class = Journey.new
     # returns an incomplete journey or creates a new one
   end
 
