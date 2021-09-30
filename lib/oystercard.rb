@@ -1,7 +1,8 @@
 class Oystercard
-  attr_reader :balance, :limit, :journey_log, :active_journey
+  attr_reader :balance, :limit, :journey_log
   LIMIT = 90
   MINIMUM_FARE = 1
+  PENALTY_FARE = 5
 
   def initialize(journey_log = JourneyLog.new)
     @balance = 0
@@ -14,15 +15,17 @@ class Oystercard
     @balance += amount
   end
 
-  def touch_in(station, journey = Journey.new)
+  def touch_in(station)
     raise "You need the minimum fare balance of £#{MINIMUM_FARE}" if @balance < MINIMUM_FARE
+    deduct(PENALTY_FARE) if @journey_log.outstanding_fare? # if they are currently touched in
     @journey_log.start(station)
   end
 
-  def touch_out(station, new_journey = Journey.new)
+  def touch_out(station)
     @journey_log.finish(station)
+    deduct(@journey_log.journeys.last.fare)
   end
-
+  
   private
   def deduct(amount)
     @balance -= amount
