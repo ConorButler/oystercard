@@ -25,7 +25,7 @@ class JourneyLog
   end
 
   private
-  
+
   def end_journey(journey, exit_station = nil) # if already touched in, exit station is nil
     @active_journey.exit_station = exit_station
     @active_journey.fare
