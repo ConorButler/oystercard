@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/conor/Ruby/Projects/Pairing/oystercard/spec/journey_spec.rb": {
+      "/Users/CharlieJMTorres/Projects/oystercard/oystercard/spec/journey_spec.rb": {
         "lines": [
           1,
           null,
           1,
           null,
           1,
-          4,
+          3,
           1,
           1,
           null,
@@ -17,15 +17,34 @@
           1,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          2,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
           1,
           1,
           1,
           1,
+          1,
+          null,
           null,
           null
         ]
       },
-      "/Users/conor/Ruby/Projects/Pairing/oystercard/lib/journey.rb": {
+      "/Users/CharlieJMTorres/Projects/oystercard/oystercard/lib/journey.rb": {
         "lines": [
           1,
           1,
@@ -39,17 +58,23 @@
           null,
           null,
           1,
-          12,
+          31,
           null,
           null,
           1,
-          11,
+          10,
+          10,
+          10,
+          null,
+          null,
+          1,
+          1,
           null,
           null,
           null
         ]
       },
-      "/Users/conor/Ruby/Projects/Pairing/oystercard/spec/journeylog_spec.rb": {
+      "/Users/CharlieJMTorres/Projects/oystercard/oystercard/spec/journeylog_spec.rb": {
         "lines": [
           1,
           1,
@@ -81,14 +106,18 @@
           1,
           1,
           1,
+          1,
+          1,
           null,
           null,
           1,
           1,
           1,
           1,
+          1,
           null,
           null,
+          1,
           1,
           1,
           1,
@@ -98,7 +127,7 @@
           null
         ]
       },
-      "/Users/conor/Ruby/Projects/Pairing/oystercard/lib/journeylog.rb": {
+      "/Users/CharlieJMTorres/Projects/oystercard/oystercard/lib/journeylog.rb": {
         "lines": [
           1,
           null,
@@ -137,7 +166,7 @@
           null
         ]
       },
-      "/Users/conor/Ruby/Projects/Pairing/oystercard/lib/oystercard.rb": {
+      "/Users/CharlieJMTorres/Projects/oystercard/oystercard/lib/oystercard.rb": {
         "lines": [
           1,
           1,
@@ -175,7 +204,7 @@
           null
         ]
       },
-      "/Users/conor/Ruby/Projects/Pairing/oystercard/spec/oystercard_spec.rb": {
+      "/Users/CharlieJMTorres/Projects/oystercard/oystercard/spec/oystercard_spec.rb": {
         "lines": [
           1,
           null,
@@ -211,13 +240,16 @@
           1,
           2,
           2,
+          2,
           null,
           null,
+          1,
           1,
           2,
           2,
           null,
           null,
+          1,
           1,
           1,
           1,
@@ -231,7 +263,7 @@
           null
         ]
       },
-      "/Users/conor/Ruby/Projects/Pairing/oystercard/lib/Oystercard.rb": {
+      "/Users/CharlieJMTorres/Projects/oystercard/oystercard/lib/Oystercard.rb": {
         "lines": [
           1,
           1,
@@ -269,7 +301,7 @@
           null
         ]
       },
-      "/Users/conor/Ruby/Projects/Pairing/oystercard/spec/station_spec.rb": {
+      "/Users/CharlieJMTorres/Projects/oystercard/oystercard/spec/station_spec.rb": {
         "lines": [
           1,
           null,
@@ -286,7 +318,7 @@
           null
         ]
       },
-      "/Users/conor/Ruby/Projects/Pairing/oystercard/lib/station.rb": {
+      "/Users/CharlieJMTorres/Projects/oystercard/oystercard/lib/station.rb": {
         "lines": [
           1,
           1,
@@ -298,6 +330,6 @@
         ]
       }
     },
-    "timestamp": 1633012927
+    "timestamp": 1633016893
   }
 }

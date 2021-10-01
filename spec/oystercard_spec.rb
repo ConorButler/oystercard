@@ -31,15 +31,18 @@ describe Oystercard do
   context "going on a journey" do
     before do
       subject.top_up(subject.limit)
+      allow(paddington).to receive(:zone).and_return(1)
       subject.touch_in(paddington)
     end
 
     it "deducts the minimum fee on touch out" do
+      allow(baker_street).to receive(:zone).and_return(1)
       expect { subject.touch_out(baker_street) 
       }.to change{ subject.balance }.by(-1)
     end
 
     it "lets you touch out and end the journey" do
+      allow(baker_street).to receive(:zone).and_return(1)
       subject.touch_out(baker_street)
       expect(subject.journey_log.outstanding_fare?).to eq(nil)
     end

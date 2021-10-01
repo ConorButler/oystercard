@@ -14,7 +14,13 @@ class Journey
   end
 
   def fare
-    complete? ? @cost =  MINIMUM_FARE : @cost = PENALTY_FARE
+    a = @entry_station.zone if complete?
+    b = @exit_station.zone if complete?
+    complete? ? @cost =  MINIMUM_FARE + (a - b).abs : @cost = PENALTY_FARE
+  end
+
+  def finish(station)
+    @exit_station = station 
   end
 
 end
