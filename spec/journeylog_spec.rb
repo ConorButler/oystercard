@@ -24,6 +24,8 @@ require 'oystercard'
   oyster.top_up(90)
 
   it "returns and array with entry and exit station" do
+    allow(paddington).to receive(:zone).and_return(1)
+    allow(bank).to receive(:zone).and_return(1)
     oyster.touch_in(paddington)
     oyster.touch_out(bank)
     expect(oyster.journey_log.journeys[0].entry_station).to eq(paddington)
@@ -31,12 +33,14 @@ require 'oystercard'
   end
 
   it "Saves the journey if they just touch out" do
+    allow(marble_arch).to receive(:zone).and_return(1)
     oyster.touch_out(marble_arch)
     expect(oyster.journey_log.journeys[1].entry_station).to eq(nil)
     expect(oyster.journey_log.journeys[1].exit_station).to eq(marble_arch)
   end
 
   it "Saves the journey and starts another if they touch in twice" do
+    allow(paddington).to receive(:zone).and_return(1)
     oyster.touch_in(paddington)
     oyster.touch_in(paddington)
     expect(oyster.journey_log.journeys[2].entry_station).to eq(paddington)
