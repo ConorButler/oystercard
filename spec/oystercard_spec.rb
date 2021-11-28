@@ -1,7 +1,7 @@
-require 'Oystercard'
+require 'oystercard'
 
 describe Oystercard do
-
+  let(:penalty_fare) { 5 }
   let(:paddington) { double("Paddington") }
   let(:baker_street) { double("Baker Street")}
 
@@ -44,9 +44,8 @@ describe Oystercard do
       expect(subject.journey_log.outstanding_fare?).to eq(nil)
     end
 
-    # it "stores the journeys in a journey log object" do
-    #   subject.touch_out(baker_street)
-    #   expect(subject.journey_log.journeys).to eq("ehwaioehawoi")
-    # end
+    it "deducts the penalty fare if you touch in twice" do
+      expect { subject.touch_in(baker_street) }.to change { subject.balance }.by(-penalty_fare)
+    end
   end 
 end
