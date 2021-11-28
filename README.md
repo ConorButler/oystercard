@@ -86,7 +86,7 @@ oyster.touch_in(mile_end)
 oyster.touch_out(paddington)
 ```
 
-## Example REPL output:
+You should see your balance after a completed journey
 
 # Tests
 
